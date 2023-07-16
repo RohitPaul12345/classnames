@@ -8,21 +8,21 @@
 (function () {
 	'use strict';
 
-	var classNames = (function () {
+	let classNames = (function () {
 		// don't inherit from Object so we can skip hasOwnProperty check later
 		// http://stackoverflow.com/questions/15518328/creating-js-object-with-object-createnull#answer-21079232
 		function StorageObject() {}
 		StorageObject.prototype = Object.create(null);
 
 		function _parseArray (resultSet, array) {
-			var length = array.length;
+			let length = array.length;
 
-			for (var i = 0; i < length; ++i) {
+			for (let i = 0; i < length; ++i) {
 				_parse(resultSet, array[i]);
 			}
 		}
 
-		var hasOwn = {}.hasOwnProperty;
+		let hasOwn = {}.hasOwnProperty;
 
 		function _parseNumber (resultSet, num) {
 			resultSet[num] = true;
@@ -34,7 +34,7 @@
 				return;
 			}
 
-			for (var k in object) {
+			for (let k in object) {
 				if (hasOwn.call(object, k)) {
 					// set value to false instead of deleting it to avoid changing object structure
 					// https://www.smashingmagazine.com/2012/11/writing-fast-memory-efficient-javascript/#de-referencing-misconceptions
@@ -43,19 +43,19 @@
 			}
 		}
 
-		var SPACE = /\s+/;
+		let SPACE = /\s+/;
 		function _parseString (resultSet, str) {
-			var array = str.split(SPACE);
-			var length = array.length;
+			let array = str.split(SPACE);
+			let length = array.length;
 
-			for (var i = 0; i < length; ++i) {
+			for (let i = 0; i < length; ++i) {
 				resultSet[array[i]] = true;
 			}
 		}
 
 		function _parse (resultSet, arg) {
 			if (!arg) return;
-			var argType = typeof arg;
+			let argType = typeof arg;
 
 			// 'foo bar'
 			if (argType === 'string') {
@@ -78,18 +78,18 @@
 		function _classNames () {
 			// don't leak arguments
 			// https://github.com/petkaantonov/bluebird/wiki/Optimization-killers#32-leaking-arguments
-			var len = arguments.length;
-			var args = Array(len);
-			for (var i = 0; i < len; i++) {
+			let len = arguments.length;
+			let args = Array(len);
+			for (let i = 0; i < len; i++) {
 				args[i] = arguments[i];
 			}
 
-			var classSet = new StorageObject();
+			let classSet = new StorageObject();
 			_parseArray(classSet, args);
 
-			var list = [];
+			let list = [];
 
-			for (var k in classSet) {
+			for (let k in classSet) {
 				if (classSet[k]) {
 					list.push(k)
 				}

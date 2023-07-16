@@ -1,8 +1,8 @@
 /* global describe, it */
 
-var assert = require('assert');
-var vm = require('vm');
-var classNames = require('../');
+let assert = require('assert');
+let vm = require('vm');
+let classNames = require('../');
 
 describe('classNames', function () {
 	it('keeps object keys with truthy values', function () {
@@ -99,8 +99,8 @@ describe('classNames', function () {
 	});
 
 	it('handles toString() method defined inherited in object', function () {
-		var Class1 = function() {};
-		var Class2 = function() {};
+		let Class1 = function() {};
+		let Class2 = function() {};
 		Class1.prototype.toString = function() { return 'classFromMethod'; }
 		Class2.prototype = Object.create(Class1.prototype);
 
@@ -108,10 +108,10 @@ describe('classNames', function () {
 	});
 
 	it('handles objects in a VM', function () {
-		var context = { classNames, output: undefined };
+		let context = { classNames, output: undefined };
 		vm.createContext(context);
 
-		var code = 'output = classNames({ a: true, b: true });';
+		let code = 'output = classNames({ a: true, b: true });';
 
 		vm.runInContext(code, context);
 		assert.equal(context.output, 'a b');

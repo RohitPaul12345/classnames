@@ -1,9 +1,9 @@
 /* global describe, it */
 
-var assert = require('assert');
-var classNames = require('../bind');
+let assert = require('assert');
+let classNames = require('../bind');
 
-var cssModulesMock = {
+let cssModulesMock = {
 	a: "#a",
 	b: "#b",
 	c: "#c",
@@ -12,7 +12,7 @@ var cssModulesMock = {
 	f: "#f"
 };
 
-var classNamesBound = classNames.bind(cssModulesMock);
+let classNamesBound = classNames.bind(cssModulesMock);
 
 describe('bind', function () {
 	describe('classNames', function () {
@@ -155,8 +155,8 @@ describe('bind', function () {
 		});
 
 		it('handles toString() method defined inherited in object', function () {
-			var Class1 = function() {};
-			var Class2 = function() {};
+			let Class1 = function() {};
+			let Class2 = function() {};
 			Class1.prototype.toString = function() { return 'classFromMethod'; }
 			Class2.prototype = Object.create(Class1.prototype);
 

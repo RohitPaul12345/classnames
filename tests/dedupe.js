@@ -1,7 +1,7 @@
 /* global describe, it */
 
-var assert = require('assert');
-var dedupe = require('../dedupe');
+let assert = require('assert');
+let dedupe = require('../dedupe');
 
 describe('dedupe', function () {
 	it('keeps object keys with truthy values', function () {
@@ -82,8 +82,8 @@ describe('dedupe', function () {
 	});
 
 	it('handles toString() method defined inherited in object', function () {
-		var Class1 = function() {};
-		var Class2 = function() {};
+		let Class1 = function() {};
+		let Class2 = function() {};
 		Class1.prototype.toString = function() { return 'classFromMethod'; }
 		Class2.prototype = Object.create(Class1.prototype);
 

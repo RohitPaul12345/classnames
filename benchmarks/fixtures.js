@@ -1,4 +1,4 @@
-var fixtures = [
+let fixtures = [
 	{
 		description: 'strings',
 		args: ['one', 'two', 'three'],

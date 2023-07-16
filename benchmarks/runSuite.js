@@ -1,7 +1,7 @@
-var benchmark = require('benchmark');
+let benchmark = require('benchmark');
 
 function runSuite (local, npm, dedupe, npmDedupe, fixture, log) {
-	var suite = new benchmark.Suite();
+	let suite = new benchmark.Suite();
 
 	suite.add('local#' + fixture.description, function () {
 		local.apply(null, fixture.args);

@@ -8,16 +8,16 @@
 (function () {
 	'use strict';
 
-	var hasOwn = {}.hasOwnProperty;
+	let hasOwn = {}.hasOwnProperty;
 
 	function classNames () {
-		var classes = [];
+		let classes = [];
 
-		for (var i = 0; i < arguments.length; i++) {
-			var arg = arguments[i];
+		for (let i = 0; i < arguments.length; i++) {
+			let arg = arguments[i];
 			if (!arg) continue;
 
-			var argType = typeof arg;
+			let argType = typeof arg;
 
 			if (argType === 'string' || argType === 'number') {
 				classes.push(this && this[arg] || arg);
@@ -29,7 +29,7 @@
 					continue;
 				}
 
-				for (var key in arg) {
+				for (let key in arg) {
 					if (hasOwn.call(arg, key) && arg[key]) {
 						classes.push(this && this[key] || key);
 					}

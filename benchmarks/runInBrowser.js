@@ -1,15 +1,15 @@
-var fixtures = require('./fixtures');
-var local = require('../');
-var dedupe = require('../dedupe');
-var localPackage = require('../package.json');
+let fixtures = require('./fixtures');
+let local = require('../');
+let dedupe = require('../dedupe');
+let localPackage = require('../package.json');
 
-var npm = require('classnames');
-var npmDedupe = require('classnames/dedupe');
-var npmPackage = require('./node_modules/classnames/package.json');
+let npm = require('classnames');
+let npmDedupe = require('classnames/dedupe');
+let npmPackage = require('./node_modules/classnames/package.json');
 
 function log (message) {
 	console.log(message);
-	var results = document.getElementById('results');
+	let results = document.getElementById('results');
 	//noinspection InnerHTMLJS
 	results.innerHTML += (message + '\n').replace(/\n/g, '<br/>');
 }
@@ -34,7 +34,7 @@ function deferredForEach (array, iterator, callback) {
 	iterate(array, iterator, 0, callback);
 }
 
-var runSuite = require('./runSuite');
+let runSuite = require('./runSuite');
 
 window.onload = function () {
 	//noinspection PlatformDetectionJS
